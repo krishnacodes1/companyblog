@@ -71,11 +71,10 @@ export default function CreatePost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if the title field is empty
     if (
       formData.title.trim() !== "" &&
       formData.category.trim() !== "" &&
-      formData.content.replace(/<\/?p>/ig, '').trim() !== ""
+      formData.content.replace(/<\/?p>/gi, "").trim() !== ""
     ) {
       try {
         const res = await fetch("/api/post/create", {
@@ -109,7 +108,7 @@ export default function CreatePost() {
     }
   };
   console.log(formData);
-  console.log(formData.content?.replace(/<\/?p>/ig, '')?.trim())
+  console.log(formData.content?.replace(/<\/?p>/gi, "")?.trim());
 
   return (
     <div className="p-3 max-w-3xl mx-auto min-h-screen">
@@ -132,9 +131,11 @@ export default function CreatePost() {
             }
           >
             <option value="uncategorized">Select a category</option>
-            <option value="javascript">JavaScript</option>
-            <option value="reactjs">React.js</option>
-            <option value="nextjs">Next.js</option>
+            <option value="JOBS">JOBS</option>
+            <option value="Techology">Techology</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Sports">Sports</option>
+            <option value="Politics">Politics</option>
           </Select>
         </div>
         <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">
