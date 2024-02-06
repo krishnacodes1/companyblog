@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../redux/theme/themeSlice";
 import { signoutSuccess } from "../redux/user/userSlice";
 import { useEffect, useState } from "react";
-import Sticky from 'react-sticky-el';
 
 export default function Header() {
   const path = useLocation().pathname;
@@ -50,7 +49,6 @@ export default function Header() {
   };
 
   return (
-    <Sticky>
     <Navbar className="border-b-2 opacity-100">
       <Link
         to="/"
@@ -131,6 +129,5 @@ export default function Header() {
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
-    </Sticky>
   );
 }
