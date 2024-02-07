@@ -107,8 +107,8 @@ export default function CreatePost() {
       }
     }
   };
-  console.log(formData);
-  console.log(formData.content?.replace(/<\/?p>/gi, "")?.trim());
+  // console.log(formData);
+  // console.log(formData.content?.replace(/<\/?p>/gi, "")?.trim());
 
   return (
     <div className="p-3 max-w-3xl mx-auto min-h-screen">
