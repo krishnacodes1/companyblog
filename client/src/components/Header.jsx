@@ -47,7 +47,7 @@ export default function Header() {
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
   };
-
+  //Importing google translator
   const googleTranslateElementInit = () => {
     new window.google.translate.TranslateElement(
       {
@@ -68,7 +68,7 @@ export default function Header() {
   }, []);
 
   return (
-    <Navbar className="border-b-2 opacity-100">
+    <Navbar className="border-b-2 opacity-100 shadow-sm-light">
       <Link
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
@@ -147,7 +147,7 @@ export default function Header() {
         <Navbar.Link active={path === "/projects"} as={"div"}>
           <Link to="/projects">ContactUs</Link>
         </Navbar.Link>
-        <div id="google_translate_element" className=""></div>
+        <div id="google_translate_element" className="h-2 cursor-pointer" ></div>
       </Navbar.Collapse>
       {/* Google Translate dropdown */}
     </Navbar>
