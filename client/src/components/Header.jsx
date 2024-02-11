@@ -48,6 +48,26 @@ export default function Header() {
     navigate(`/search?${searchQuery}`);
   };
 
+  
+  const googleTranslateElementInit = () => {
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        autoDisplay: true
+      },
+      "google_translate_element"
+    );
+  };
+  useEffect(() => {
+    var addScript = document.createElement("script");
+    addScript.setAttribute(
+      "src",
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    );
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, []);
+
   return (
     <Navbar className="border-b-2 opacity-100">
       <Link
@@ -76,6 +96,9 @@ export default function Header() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
+
+      <div id="google_translate_element" className=" h-4 fixed top-[23%] right-[3%] z-10 "></div>
+
       <Button className="w-12 h-10 lg:hidden" color="gray" pill>
         <AiOutlineSearch />
       </Button>
