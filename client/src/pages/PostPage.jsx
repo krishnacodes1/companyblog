@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import CallToAction from "../components/CallToAction";
 import CommentSection from "../components/CommentSection";
 import PostCard from "../components/PostCard";
+import { FaShare } from "react-icons/fa";
 
 export default function PostPage() {
   const { postSlug } = useParams();
@@ -11,6 +12,7 @@ export default function PostPage() {
   const [error, setError] = useState(false);
   const [post, setPost] = useState(null);
   const [recentPosts, setRecentPosts] = useState(null);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -62,6 +64,24 @@ export default function PostPage() {
       <h1 className="text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl">
         {post && post.title}
       </h1>
+      {/* <button className=" ql-align-right">Share</button> */}
+      <div className="fixed top-[13%] right-[3%] z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer">
+        <FaShare
+          className="text-slate-500"
+          onClick={() => {
+            navigator.clipboard.writeText(window.location.href);
+            setCopied(true);
+            setTimeout(() => {
+              setCopied(false);
+            }, 2000);
+          }}
+        />
+      </div>
+      {copied && (
+        <p className="fixed top-[23%] right-[5%] z-10 rounded-md bg-slate-100 p-2">
+          Link copied!
+        </p>
+      )}
       <Link
         to={`/search?category=${post && post.category}`}
         className="self-center mt-5"
@@ -88,7 +108,6 @@ export default function PostPage() {
       {/* <div className='max-w-4xl mx-auto w-full'>
         <CallToAction />
       </div> */}
-      <p>hhhhhhhhhhhhh</p>
       <CommentSection postId={post._id} />
 
       <div className="flex flex-col justify-center items-center mb-5">
