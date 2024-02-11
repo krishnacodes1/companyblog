@@ -61,27 +61,30 @@ export default function PostPage() {
     );
   return (
     <main className="p-3 flex flex-col max-w-6xl mx-auto min-h-screen">
-      <h1 className="text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl">
-        {post && post.title}
-      </h1>
-      {/* <button className=" ql-align-right">Share</button> */}
-      <div className="fixed top-[13%] right-[3%] z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer">
-        <FaShare
-          className="text-slate-500"
-          onClick={() => {
-            navigator.clipboard.writeText(window.location.href);
-            setCopied(true);
-            setTimeout(() => {
-              setCopied(false);
-            }, 2000);
-          }}
-        />
+      <div className="flex justify-evenly">
+        <h1 className="text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl">
+          {post && post.title}
+        </h1>
+        <div
+          className="mt-5 z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer"
+          title={copied ? "Link Copied!" : "Share"}
+        >
+          <FaShare
+            className="text-slate-500"
+            onClick={() => {
+              navigator.clipboard.writeText(window.location.href);
+              setCopied(true);
+              setTimeout(() => {
+                setCopied(false);
+              }, 2000);
+            }}
+          />
+        </div>
+          {copied && (
+            <p className="fixed top-[12%] z-10 rounded-md bg-slate-100 p-2">Link copied!</p>
+          )}
       </div>
-      {copied && (
-        <p className="fixed top-[23%] right-[5%] z-10 rounded-md bg-slate-100 p-2">
-          Link copied!
-        </p>
-      )}
+
       <Link
         to={`/search?category=${post && post.category}`}
         className="self-center mt-5"

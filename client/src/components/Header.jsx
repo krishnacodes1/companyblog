@@ -48,12 +48,11 @@ export default function Header() {
     navigate(`/search?${searchQuery}`);
   };
 
-  
   const googleTranslateElementInit = () => {
     new window.google.translate.TranslateElement(
       {
         pageLanguage: "en",
-        autoDisplay: true
+        autoDisplay: true,
       },
       "google_translate_element"
     );
@@ -96,8 +95,6 @@ export default function Header() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
-
-      <div id="google_translate_element" className=" h-4 fixed top-[23%] right-[3%] z-10 "></div>
 
       <Button className="w-12 h-10 lg:hidden" color="gray" pill>
         <AiOutlineSearch />
@@ -150,7 +147,9 @@ export default function Header() {
         <Navbar.Link active={path === "/projects"} as={"div"}>
           <Link to="/projects">ContactUs</Link>
         </Navbar.Link>
+        <div id="google_translate_element" className=""></div>
       </Navbar.Collapse>
+      {/* Google Translate dropdown */}
     </Navbar>
   );
 }
