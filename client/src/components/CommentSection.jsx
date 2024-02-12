@@ -122,7 +122,7 @@ export default function CommentSection({ postId }) {
           />
           <Link
             to={'/dashboard?tab=profile'}
-            className='text-xs text-cyan-600 hover:underline'
+            className='text-xs text-blue-700 hover:underline'
           >
             @{currentUser.username}
           </Link>
@@ -138,7 +138,7 @@ export default function CommentSection({ postId }) {
       {currentUser && (
         <form
           onSubmit={handleSubmit}
-          className='border border-teal-500 rounded-md p-3'
+          className='border border-orange-500 rounded-md p-3'
         >
           <Textarea
             placeholder='Add a comment...'
