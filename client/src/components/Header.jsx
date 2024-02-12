@@ -52,7 +52,7 @@ export default function Header() {
     new window.google.translate.TranslateElement(
       {
         pageLanguage: "en",
-        autoDisplay: true,
+        // autoDisplay: true,
       },
       "google_translate_element"
     );
