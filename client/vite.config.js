@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'blogs.velocitytech.in',
+        target: 'https://blogs.velocitytech.in',
         secure: false,
       },
     },
