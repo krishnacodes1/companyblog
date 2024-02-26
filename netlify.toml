@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  functions = "functions" # This is where Netlify expects serverless functions
+  functions = "api" # This is where Netlify expects serverless functions
 
 [dev]
   command = "npm run dev"
