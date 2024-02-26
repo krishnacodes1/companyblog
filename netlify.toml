@@ -1,4 +1,11 @@
+[build]
+  command = "npm run build"
+  functions = "functions" # This is where Netlify expects serverless functions
+
+[dev]
+  command = "npm run dev"
+
 [[redirects]]
-  from = "/*"
-  to = "/"
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
   status = 200
